@@ -16,4 +16,13 @@ public class CalculadorDescuentosTest {
 		Assert.assertTrue(0.02D == factura.getDescuentoAplicado());
 		Assert.assertTrue(490000 == factura.getTotal());
 	}
+	
+	@Test
+	public void debeHacerDescuentoDelCincoPorcientoCuandoPagaConTarjetaCredito() {
+		Factura factura = new Factura(500000, "CREDITO");
+		CalculadorDescuentos calculador = new CalculadorDescuentos();
+		calculador.calcular(factura);
+		Assert.assertTrue(0.05D == factura.getDescuentoAplicado());
+		Assert.assertTrue(475000 == factura.getTotal());
+	}
 }

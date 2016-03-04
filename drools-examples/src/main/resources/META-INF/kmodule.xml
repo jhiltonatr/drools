@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://jboss.org/kie/6.0.0/kmodule"/>
+<!-- 	<kbase name="DRLKBase" packages="co.com.gco.rules.drl" > -->
+<!--         <ksession name="FizzBuzzKS" type="stateless"/> -->
+<!--     </kbase> -->
+<!--     <kbase name="DSLKBase" packages="co.com.gco.rules.dsl"> -->
+<!--         <ksession name="FizzBuzzDSLKS" type="stateless" /> -->
+<!--     </kbase> -->
+<!-- </kmodule> -->

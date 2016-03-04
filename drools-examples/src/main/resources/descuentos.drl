@@ -1,0 +1,26 @@
+//created on: 4/03/2016
+package co.com.jhilton.drools.descuentos.rules
+
+//list any import classes here.
+import  co.com.jhilton.drools.descuentos.model.*
+
+
+//declare any global variables here
+
+rule "compra con tarjeta debito"
+    when
+        $f : Factura(formaPago == "DEBITO")
+    then
+    	System.out.println("Se concedió descuento de 2% ");
+    	$f.setDescuentoAplicado(0.02);
+    	$f.setTotal($f.getSubtotal() * (1 - $f.getDescuentoAplicado()));
+end
+
+rule "compra con tarjeta credito"
+    when
+        $f : Factura(formaPago == "CREDITO")
+    then
+    	System.out.println("Se concedió descuento de 5%");
+    	$f.setDescuentoAplicado(0.05);
+    	$f.setTotal($f.getSubtotal() * (1 - $f.getDescuentoAplicado()));
+end
