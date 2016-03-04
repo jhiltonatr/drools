@@ -1,0 +1,21 @@
+apply plugin: 'java'
+
+[ compileJava, compileTestJava ]*.options*.encoding = 'UTF-8'
+
+sourceCompatibility = '1.6'
+
+dependencies {
+	compile 'org.drools:drools-core:6.3.0.Final'
+	compile 'org.drools:drools-compiler:6.3.0.Final'
+	
+	testCompile 'junit:junit:4.11'
+}
+
+repositories {
+	mavenCentral()
+}
+
+
+jar {
+	archiveName = "${baseName}.${extension}"
+}
