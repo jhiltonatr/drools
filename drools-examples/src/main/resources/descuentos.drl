@@ -34,19 +34,3 @@ rule "descuento por compra con efectivo"
     	$f.setDescuentoAplicado(0.0);
 end
 
-rule "ingresar preaprobacion credito"
-    when
-        $f : Factura(formaPago == FormaPago.EFECTIVO, subtotal >= 1000000)
-    then
-    	System.out.println("Credito preaprobado");
-    	CreditoPreaprobado credito = new CreditoPreaprobado($f.getCliente(), $f.getTotal() * 0.80);
-    	insert(credito);
-end
-
-rule "cliente con credito preaprobado"
-    when
-        $c : CreditoPreaprobado()
-    then
-    	System.out.println("Ingresando a la cola");
-    	COLA_CORREOS.add($c);
-end

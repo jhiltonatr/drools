@@ -1,0 +1,29 @@
+//created on: 7/03/2016
+package co.com.jhilton.drools.credito.rules
+
+//list any import classes here.
+import java.util.List
+import co.com.jhilton.drools.descuentos.model.*
+import co.com.jhilton.drools.descuentos.ejecutor.CreditoPreaprobado
+
+
+//declare any global variables here
+
+
+
+rule "ingresar preaprobacion credito"
+    when
+        $f : Factura(formaPago == FormaPago.EFECTIVO, subtotal >= 1000000)
+    then
+    	System.out.println("Credito preaprobado");
+    	CreditoPreaprobado credito = new CreditoPreaprobado($f.getCliente(), $f.getTotal() * 0.80);
+    	insert(credito);
+end
+
+rule "cliente con credito preaprobado"
+    when
+        $c : CreditoPreaprobado()
+    then
+    	System.out.println("Ingresando a la cola");
+    	COLA_CORREOS.add($c);
+end
