@@ -1,0 +1,8 @@
+Dentro de un sistema de facturación, se requiere dar descuentos según la forma de pago del cliente así:
+Tarjeta de debito: 2% descuento sobre el valor de la factura
+Tarjeta de crédito: 5% descuento sobre el valor de la factura
+
+Además para los clientes que pagan en efectivo, se desea evaluar si son clientes potenciales para ofrecerles un crédito por el 80% del valor de la factura.
+Un cliente potencial es aquel que realice una compra superior a 1000000 de pesos.
+
+El contacto de un cliente potencial se realizará por correo electrónico.
