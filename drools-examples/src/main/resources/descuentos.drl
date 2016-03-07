@@ -9,7 +9,7 @@ import  co.com.jhilton.drools.descuentos.model.*
 
 rule "descuento por compra con tarjeta debito"
     when
-        $f : Factura(formaPago == "DEBITO")
+        $f : Factura(formaPago == FormaPago.DEBITO)
     then
     	System.out.println("Se concedió descuento de 2% ");
     	$f.setDescuentoAplicado(0.02);
@@ -17,7 +17,7 @@ end
 
 rule "descuento por compra con tarjeta credito"
     when
-        $f : Factura(formaPago == "CREDITO")
+        $f : Factura(formaPago == FormaPago.CREDITO)
     then
     	System.out.println("Se concedió descuento de 5%");
     	$f.setDescuentoAplicado(0.05);
@@ -25,7 +25,7 @@ end
 
 rule "descuento por compra con efectivo"
     when
-        $f : Factura(formaPago == "EFECTIVO")
+        $f : Factura(formaPago == FormaPago.EFECTIVO)
     then
     	System.out.println("No se concedió descuento");
     	$f.setDescuentoAplicado(0.0);

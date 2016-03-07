@@ -4,19 +4,15 @@ public class Factura {
 
 	private int subtotal;
 	private double descuentoAplicado;
-	private String formaPago;
+	private FormaPago formaPago;
 
-	public Factura(int subtotal, String formaPago) {
+	public Factura(int subtotal, FormaPago formaPago) {
 		this.subtotal = subtotal;
 		this.formaPago = formaPago;
 	}
 
 	public int getSubtotal() {
 		return subtotal;
-	}
-
-	public void setSubtotal(int subtotal) {
-		this.subtotal = subtotal;
 	}
 
 	public double getTotal() {
@@ -31,12 +27,9 @@ public class Factura {
 		this.descuentoAplicado = descuentoAplicado;
 	}
 
-	public String getFormaPago() {
+	public FormaPago getFormaPago() {
 		return formaPago;
 	}
 
-	public void setFormaPago(String formaPago) {
-		this.formaPago = formaPago;
-	}
 
 }
