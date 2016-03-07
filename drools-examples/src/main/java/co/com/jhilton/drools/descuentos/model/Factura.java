@@ -3,7 +3,6 @@ package co.com.jhilton.drools.descuentos.model;
 public class Factura {
 
 	private int subtotal;
-	private double total;
 	private double descuentoAplicado;
 	private String formaPago;
 
@@ -21,11 +20,7 @@ public class Factura {
 	}
 
 	public double getTotal() {
-		return total;
-	}
-
-	public void setTotal(double total) {
-		this.total = total;
+		return getSubtotal() * (1 - getDescuentoAplicado());
 	}
 
 	public double getDescuentoAplicado() {

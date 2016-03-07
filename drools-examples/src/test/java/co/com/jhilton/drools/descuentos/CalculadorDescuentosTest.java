@@ -25,4 +25,13 @@ public class CalculadorDescuentosTest {
 		Assert.assertTrue(0.05D == factura.getDescuentoAplicado());
 		Assert.assertTrue(475000 == factura.getTotal());
 	}
+	
+	@Test
+	public void noDebeHacerDescuentoCuandoPagaConEfectivo() {
+		Factura factura = new Factura(500000, "EFECTIVO");
+		CalculadorDescuentos calculador = new CalculadorDescuentos();
+		calculador.calcular(factura);
+		Assert.assertTrue(0.00D == factura.getDescuentoAplicado());
+		Assert.assertTrue(500000 == factura.getTotal());
+	}
 }
