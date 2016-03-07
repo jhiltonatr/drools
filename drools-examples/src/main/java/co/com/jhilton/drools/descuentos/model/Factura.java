@@ -7,9 +7,10 @@ public class Factura {
 	private FormaPago formaPago;
 	private Cliente cliente;
 
-	public Factura(int subtotal, FormaPago formaPago) {
+	public Factura(int subtotal, FormaPago formaPago, Cliente cliente) {
 		this.subtotal = subtotal;
 		this.formaPago = formaPago;
+		this.cliente = cliente;
 	}
 
 	public int getSubtotal() {

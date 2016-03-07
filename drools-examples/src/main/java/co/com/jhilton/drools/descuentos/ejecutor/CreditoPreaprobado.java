@@ -4,7 +4,15 @@ import co.com.jhilton.drools.descuentos.model.Cliente;
 
 public class CreditoPreaprobado {
 
-	public CreditoPreaprobado(Cliente cliente, double valorPreaprovado) {
-		// TODO Auto-generated constructor stub
+	private Cliente cliente;
+	private double valorPreaprobado;
+
+	public CreditoPreaprobado(Cliente cliente, double valorPreaprobado) {
+		this.cliente = cliente;
+		this.valorPreaprobado = valorPreaprobado;
+	}
+	
+	public Cliente getCliente() {
+		return cliente;
 	}
 }
