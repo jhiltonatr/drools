@@ -5,6 +5,7 @@ public class Factura {
 	private int subtotal;
 	private double descuentoAplicado;
 	private FormaPago formaPago;
+	private Cliente cliente;
 
 	public Factura(int subtotal, FormaPago formaPago) {
 		this.subtotal = subtotal;
@@ -29,6 +30,14 @@ public class Factura {
 
 	public FormaPago getFormaPago() {
 		return formaPago;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 

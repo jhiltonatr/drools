@@ -1,14 +1,21 @@
 package co.com.jhilton.drools.descuentos;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import co.com.jhilton.drools.descuentos.ejecutor.CalculadorDescuentos;
+import co.com.jhilton.drools.descuentos.ejecutor.ColaCorreo;
 import co.com.jhilton.drools.descuentos.model.Factura;
 import co.com.jhilton.drools.descuentos.model.FormaPago;
 
 public class CalculadorDescuentosTest {
 
+	@Before
+	public void init() {
+		ColaCorreo.clear();
+	}
+	
 	@Test
 	public void debeHacerDescuentoDelDosPorcientoCuandoPagaConTarjetaDebito() {
 		Factura factura = new Factura(500000, FormaPago.DEBITO);
@@ -34,5 +41,13 @@ public class CalculadorDescuentosTest {
 		calculador.calcular(factura);
 		Assert.assertTrue(0.00D == factura.getDescuentoAplicado());
 		Assert.assertTrue(500000 == factura.getTotal());
+	}
+	
+	@Test
+	public void debeAgregarCreditoPreaprobadoAColaDeCorreoPorCompraDeUnMillon() {
+		Factura factura = new Factura(1000000, FormaPago.EFECTIVO);
+		CalculadorDescuentos calculador = new CalculadorDescuentos();
+		calculador.calcular(factura);
+		Assert.assertEquals(1, ColaCorreo.getMessagesInQueue());
 	}
 }

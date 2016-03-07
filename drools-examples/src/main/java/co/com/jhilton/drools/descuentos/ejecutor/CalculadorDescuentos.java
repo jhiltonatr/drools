@@ -12,7 +12,7 @@ public class CalculadorDescuentos {
 		KieServices kService = KieServices.Factory.get();
 		KieContainer kContainer = kService.newKieClasspathContainer();
 		StatelessKieSession kSession = kContainer.newStatelessKieSession();
-		
+		kSession.setGlobal("COLA_CORREOS", ColaCorreo.getCola());
 		kSession.execute(factura);
 	}
 
